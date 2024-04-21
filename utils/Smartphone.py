@@ -1,7 +1,7 @@
-from Product import Product
+from main import AbstractProduct
 
 
-class Smartphone(Product):
+class Smartphone(AbstractProduct):
     def __init__(self, name, description, price, quantity, manufacturer, model, storage_capacity, color):
         super().__init__(name, description, price, quantity)
         self.manufacturer = manufacturer

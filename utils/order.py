@@ -1,14 +1,6 @@
-from abc import ABC, abstractmethod
-
-
-class AbstractOrder(ABC):
-    @abstractmethod
-    def __init__(self, product, quantity, total_cost):
-        pass
+from abstractorder import AbstractOrder
 
 
 class Order(AbstractOrder):
-    def __init__(self, product, quantity, total_cost):
-        self.product = product
-        self.quantity = quantity
-        self.total_cost = total_cost
+    def display_order(self):
+        print(f"Product: {self.product}, Quantity: {self.quantity}, Total Cost: {self.total_cost}")

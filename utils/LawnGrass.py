@@ -1,7 +1,7 @@
-from Product import Product
+from main import AbstractProduct
 
 
-class LawnGrass(Product):
+class LawnGrass(AbstractProduct):
     def __init__(self, name, description, price, quantity, country_of_origin, germination_period, color):
         super().__init__(name, description, price, quantity)
         self.country_of_origin = country_of_origin

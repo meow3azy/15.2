@@ -1,14 +1,13 @@
-from LawnGrass import LawnGrass
-from Smartphone import Smartphone
+from abc import ABC, abstractmethod
 
 
-def main():
-    smartphone = Smartphone()
-    smartphone.create_product()
+class AbstractProduct(ABC):
+    def __init__(self, name, description, price, quantity):
+        self.name = name
+        self.description = description
+        self.price = price
+        self.quantity = quantity
 
-    lawn_grass = LawnGrass()
-    lawn_grass.create_product()
-
-
-if __name__ == "__main__":
-    main()
+    @abstractmethod
+    def display_info(self):
+        pass
