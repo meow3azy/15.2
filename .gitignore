@@ -1,13 +1,11 @@
-# Игнорировать файлы с расширением .pyc
-*.pyc
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Игнорировать директорию с виртуальной средой Python
-venv/
+# Virtual environment
+.venv/
+env/
 
-# Игнорировать файлы и директории
-.idea/
-.vscode/
-
-# Игнорировать файлы с настройками и кэшем
-*.log
-*.cache
+# Pytest cache
+.cache/

@@ -1,6 +1,13 @@
-from abstractorder import AbstractOrder
+from .Product import Product
 
+class Order:
+    def __init__(self):
+        self.items = []
 
-class Order(AbstractOrder):
-    def display_order(self):
-        print(f"Product: {self.product}, Quantity: {self.quantity}, Total Cost: {self.total_cost}")
+    def add_product(self, product):
+        if not isinstance(product, Product):
+            raise ValueError("Можно добавлять только объекты класса Product")
+        self.items.append(product)
+
+    def __str__(self):
+        return f"Заказ содержит: {len(self.items)} товаров"

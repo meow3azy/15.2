@@ -1,6 +1,11 @@
-from main import AbstractProduct
-
+from .abstract_product import AbstractProduct
 
 class Product(AbstractProduct):
-    def display_info(self):
-        print(f"Name: {self.name}, Description: {self.description}, Price: {self.price}, Quantity: {self.quantity}")
+    def __init__(self, name, description, price, quantity):
+        self.name = name
+        self.description = description
+        self.price = price
+        self.quantity = quantity
+
+    def __str__(self):
+        return f"{self.name}: {self.description}, Цена - {self.price} руб, Остаток - {self.quantity} шт"
