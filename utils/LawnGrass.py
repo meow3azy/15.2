@@ -1,4 +1,4 @@
-from .Product import Product
+from utils.Product import Product
 
 class LawnGrass(Product):
     def __init__(self, name, description, price, quantity):

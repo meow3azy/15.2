@@ -6,7 +6,7 @@ from utils.order import Order
 
 @pytest.fixture
 def create_smartphone():
-    return Smartphone("Smartphone", "High-end smartphone", 1000, 50)
+    return Smartphone("Smartphone", "High-end smartphone", 1000, 50, "Brand X")
 
 @pytest.fixture
 def create_lawngrass():
@@ -14,7 +14,11 @@ def create_lawngrass():
 
 @pytest.fixture
 def create_order():
-    return Order()
+    return Order(order_id="123", products=[])
+
+def test_order_creation(create_order):
+    order = create_order
+    assert order.order_id == "123"
 
 def test_product_initialization(create_smartphone):
     product = create_smartphone
@@ -34,3 +38,8 @@ def test_invalid_product_addition(create_order):
     order = create_order
     with pytest.raises(ValueError):
         order.add_product("Не продукт")
+
+def test_smartphone_creation(create_smartphone):
+    smartphone = create_smartphone
+    assert smartphone.name == "Smartphone"
+    assert smartphone.price == 1000
