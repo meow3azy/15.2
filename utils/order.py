@@ -1,9 +1,12 @@
-from .Product import Product
+from utils.Product import Product
+from utils.mixin import ObjectCreationMixin
 
-class Order:
-    def __init__(self, order_id, products=None):
+
+class Order(ObjectCreationMixin):
+    def __init__(self, order_id, products):
+        super().__init__()
         self.order_id = order_id
-        self.products = products if products is not None else []
+        self.products = products
 
     def add_product(self, product):
         if not isinstance(product, Product):
@@ -11,4 +14,4 @@ class Order:
         self.products.append(product)
 
     def total_price(self):
-        return sum(product.calculate_total_value() for product in self.products)
+        return sum(product.price for product in self.products)

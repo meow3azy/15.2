@@ -1,9 +1,13 @@
 from abc import ABC, abstractmethod
 
+
+from abc import ABC, abstractmethod
+
 class AbstractProduct(ABC):
     @abstractmethod
-    def __str__(self):
+    def display(self):
         pass
+
 
     @abstractmethod
     def apply_discount(self, discount):

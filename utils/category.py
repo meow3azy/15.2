@@ -1,15 +1,18 @@
-from .mixin import ObjectCreationMixin
+from utils.mixin import ObjectCreationMixin
+
 
 class Category(ObjectCreationMixin):
-    def __init__(self, name):
+    def __init__(self, name, products=None):
+        super().__init__()
         self.name = name
-        self.products = []
+        self.products = products if products is not None else []
 
     def add_product(self, product):
         self.products.append(product)
 
-    def __str__(self):
-        return f"{self.name}, количество продуктов: {len(self.products)} шт."
+    def remove_product(self, product):
+        self.products.remove(product)
 
-    def __iter__(self):
-        return iter(self.products)
+    def display_products(self):
+        for product in self.products:
+            print(product.display())

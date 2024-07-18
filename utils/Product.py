@@ -3,14 +3,14 @@ from utils.mixin import ObjectCreationMixin
 
 class Product(AbstractProduct, ObjectCreationMixin):
     def __init__(self, name, description, price, quantity):
+        super().__init__()
         self.name = name
         self.description = description
         self.price = price
         self.quantity = quantity
-        print(f"Product('{self.name}', '{self.description}', {self.price}, {self.quantity}) создан")
 
-    def __str__(self):
-        return f"{self.name}: Цена - {self.price} руб, Остаток - {self.quantity} шт."
+    def display(self):
+        return f"Product: {self.name} - {self.description}: {self.price} ({self.quantity} available)"
 
     def apply_discount(self, discount):
         self.price -= self.price * discount
