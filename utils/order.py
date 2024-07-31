@@ -1,10 +1,9 @@
 from utils.Product import Product
 from utils.mixin import ObjectCreationMixin
 
-
 class Order(ObjectCreationMixin):
     def __init__(self, order_id, products):
-        super().__init__()
+        super().__init__(order_id, products)
         self.order_id = order_id
         self.products = products
 

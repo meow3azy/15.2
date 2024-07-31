@@ -1,9 +1,8 @@
 from utils.mixin import ObjectCreationMixin
 
-
 class Category(ObjectCreationMixin):
     def __init__(self, name, products=None):
-        super().__init__()
+        super().__init__(name, products)
         self.name = name
         self.products = products if products is not None else []
 
